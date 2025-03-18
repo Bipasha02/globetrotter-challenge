@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.clue {
+  font-size: 18px;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+ul li:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+  background-image: url('https://cdn.magicdecor.in/com/2024/06/07161329/Window-to-the-World-Travel-Wallpaper-Mural.jpg');
+  background-size: cover;
+}
+
+h1 {
+  color: #000000;
+}
