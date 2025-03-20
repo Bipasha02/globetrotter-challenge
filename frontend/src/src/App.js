@@ -9,6 +9,8 @@ function App() {
   const [feedback, setFeedback] = useState(null);
   const [username, setUsername] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  // const [timeLeft, setTimeLeft] = useState(20);
+  // const [timeractive , settimeractive] = useState(false);
 
   const fetchDestination = async () => {
     try {
@@ -16,6 +18,8 @@ function App() {
       const res = await axios.get('http://localhost:5001/api/destination');
       setGameData(res.data);
       setFeedback(null);
+      // setTimeLeft(20);
+      // settimeractive(true);
     } catch (error) {
       console.error('Error fetching destination:', error);
       setFeedback('Error fetching destination. Please try again.');
@@ -24,12 +28,33 @@ function App() {
     }
   };
 
+  // setTimeout(() => {
+  //   fetchDestination();
+  // }, 250);
+
+  // useEffect(() => {
+  //   // fetchDestination();
+  //   if(timeLeft >0){
+  //     const timer = setTimeout(() => {setTimeLeft(timeLeft-1);
+  //     console.log(timeLeft);
+  //     }, 1000);
+  //   }
+  //   // if(timeLeft===0){
+  //   //   settimeractive(false);
+  //   //   setTimeout(fetchDestination, 2000);
+  //   // }
+
+
+  // }, [timeLeft]);
+
   useEffect(() => {
     fetchDestination();
   }, []);
 
+  
+
   const handleGuess = (guess) => {
-    if (feedback) return; // Prevent guessing after feedback
+    if (feedback) return;
     if (guess === gameData.correctAnswer) {
       setFeedback('correct');
       setScore({ ...score, correct: score.correct + 1 });
@@ -118,47 +143,3 @@ function App() {
 }
 
 export default App;
-
-
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// function App() {
-//   const [username, setUsername] = useState('');
-//   const [loading, setLoading] = useState(false);
-//   const [error, setError] = useState(null);
-
-//   const handleStart = async () => {
-//     if (username.trim()) {
-//       setLoading(true);
-//       setError(null);
-//       try {
-//         const response = await axios.get('http://localhost:5000/api/destination');
-//         console.log('Destination:', response.data);
-//         // Proceed to game logic (e.g., set state or navigate)
-//       } catch (error) {
-//         setError('Failed to start game. Check backend or console for details.');
-//         console.error('API Error:', error);
-//       } finally {
-//         setLoading(false);
-//       }
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h1>Globetrotter Challenge</h1>
-//       <input
-//         type="text"
-//         placeholder="Enter your username"
-//         value={username}
-//         onChange={(e) => setUsername(e.target.value)}
-//       />
-//       <button onClick={handleStart}>Start Playing</button>
-//       {loading && <p>Loading...</p>}
-//       {error && <p style={{ color: 'red' }}>{error}</p>}
-//     </div>
-//   );
-// }
-
-// export default App;
