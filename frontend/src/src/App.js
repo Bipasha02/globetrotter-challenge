@@ -13,7 +13,7 @@ function App() {
   const fetchDestination = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get('http://localhost:5000/api/destination');
+      const res = await axios.get('http://localhost:5001/api/destination');
       setGameData(res.data);
       setFeedback(null);
     } catch (error) {
